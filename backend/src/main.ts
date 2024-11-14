@@ -1,5 +1,5 @@
 import DespesasCRUD from "./Despesas";
-import RotaCalculaEstoque from "./math/CalculaEstoque";
+import RotaCalculaEstoque from "./math/CalcularDespesas";
 
 const express = require('express');
 const cors = require('cors'); // Importa o middleware cors
