@@ -3,9 +3,20 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev": "tsc && node ./build/main.js"
   },
   "author": "William Jardim",
   "license": "MIT",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.9.0",
+    "better-sqlite3": "^11.5.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "typescript": "^5.6.3"
+  }
 }
