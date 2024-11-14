@@ -1,5 +1,4 @@
-import BaixasCRUD from "./Baixas";
-import ProdutosCRUD from "./Produtos";
+import DespesasCRUD from "./Despesas";
 import RotaCalculaEstoque from "./math/CalculaEstoque";
 
 const express = require('express');
@@ -17,8 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 //Carrega o CRUD de produtos
-const produtosCrud = new ProdutosCRUD(app, appDB);
-const baixasCrud   = new BaixasCRUD(app, appDB);
+const despesasCrud   = new DespesasCRUD(app, appDB);
 const calcEstoque = new RotaCalculaEstoque(app, appDB);
 
 // Inicia o servidor
