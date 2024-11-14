@@ -3,7 +3,9 @@ import { Application, Request, Response } from 'express';
 interface Despesa {
   id: number,
   nome: string,
+  tipo: string,
   categoria: string,
+  nivel: string,
   descricao: string,
   valor: number
 }
@@ -19,7 +21,9 @@ class DespesasCRUD {
     {
       this.dbInstance.criarTabela('despesas', [
         'nome      VARCHAR(60) NOT NULL',
+        'tipo      VARCHAR(50) NOT NULL',
         'categoria VARCHAR(30) NOT NULL',
+        'nivel     TEXT',
         'descricao TEXT NOT NULL',
         'valor     DECIMAL'
       ]);
@@ -29,13 +33,15 @@ class DespesasCRUD {
     // Rota para criar uma nova despesa
     app.post('/despesas', (req: Request<{}, {}, Despesa>, res: Response) => {
       const nome       = req.body.nome!;
+      const tipo       = req.body.tipo!;
       const categoria  = req.body.categoria!;
+      const nivel      = req.body.nivel!;
       const descricao  = req.body.descricao!;
       const valor      = req.body.valor!;
       
       try {
 
-        this.dbInstance.inserir('despesas', [nome, categoria, descricao, valor]);
+        this.dbInstance.inserir('despesas', [nome, tipo, categoria, nivel, descricao, valor]);
 
         res.status(201).json({ message: 'Despesa criada com sucesso.' });
       } catch (error) {
